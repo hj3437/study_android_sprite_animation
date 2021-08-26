@@ -4,6 +4,8 @@ package com.hurdle.spriteanimation
 import android.content.Context
 import android.graphics.BitmapFactory
 import android.graphics.Canvas
+import android.graphics.Color
+import android.graphics.Paint
 import android.os.Handler
 import android.os.Looper
 import android.os.Message
@@ -67,6 +69,13 @@ class LogDrawingView @JvmOverloads constructor(
 
                         // log 출력
                         canvas.drawBitmap(mBitmap, 0f, 0f, null)
+
+                        val paint = Paint()
+                        paint.color = Color.MAGENTA
+                        paint.style = Paint.Style.STROKE
+                        paint.strokeWidth = 8f
+
+
                     }
 
                 } finally {
