@@ -2,6 +2,7 @@ package com.hurdle.spriteanimation
 
 
 import android.content.Context
+import android.graphics.BitmapFactory
 import android.graphics.Canvas
 import android.os.Handler
 import android.os.Looper
@@ -48,6 +49,8 @@ class LogDrawingView @JvmOverloads constructor(
         val handler: Handler,
         val surfaceHolder: SurfaceHolder
     ) : Thread() {
+        private val mBitmap = BitmapFactory.decodeResource(context.resources, R.drawable.log)
+
         override fun run() {
             super.run()
 
@@ -60,7 +63,10 @@ class LogDrawingView @JvmOverloads constructor(
 
                     canvas = surfaceHolder.lockCanvas(null)
                     synchronized(surfaceHolder) {
-                        canvas.drawARGB(0, 0, 0, 0)
+                        canvas.drawARGB(255, 200, 200, 200)
+
+                        // log 출력
+                        canvas.drawBitmap(mBitmap, 0f, 0f, null)
                     }
 
                 } finally {
